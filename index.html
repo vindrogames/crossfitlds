@@ -105,6 +105,29 @@
             player.setVelocityY(-330);
         }
 
+        if (cursors.up.isDown && player.body.touching.down)
+        {
+            player.setVelocityY(-330);
+        }
+
+        var pointer = this.input.activePointer;
+        if (pointer.isDown) {
+            var touchX = pointer.x;
+            var touchY = pointer.y;
+            if (touchX > player.x)
+            {
+                player.setVelocityX(160);
+            }
+            else if (touchX < player.x)
+            {
+                player.setVelocityX(-160);
+            }
+            if ( (touchY < player.y - 100) && player.body.touching.down)
+            {
+                player.setVelocityY(-330);
+            }
+        }
+
     }
 
     function collectStar (player,star)
